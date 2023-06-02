@@ -4,9 +4,9 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import HomeBottomBar from './HomeBottomBar';
-import Lottie from 'lottie-react-native';
-import Settings from '/features/Settings';
-import { DASHBOARD, SETTINGS } from '../constants';
+import { ACCOUNT, CART, CATEGORIES, DASHBOARD } from '../constants';
+import { Image } from 'react-native';
+import Dashboard from 'features/Dashboard';
 
 //set up routes
 const Tab = createBottomTabNavigator();
@@ -14,11 +14,6 @@ const Tab = createBottomTabNavigator();
 // variable
 const homeOptions: BottomTabNavigationOptions = {
   headerShown: false,
-};
-
-const iconStyle = {
-  height: 24,
-  width: 24,
 };
 
 function HomeNavigation() {
@@ -29,20 +24,60 @@ function HomeNavigation() {
       tabBar={(props) => <HomeBottomBar {...props} />}
     >
       <Tab.Screen
-        name={SETTINGS}
+        name={DASHBOARD}
         options={{
           // @ts-ignore
-          tabBarIcon: ({ ref }) => (
-            <Lottie
-              ref={ref}
-              loop={false}
-              source={require('assets/lottie/settings.icon.json')}
-              style={iconStyle}
-              autoPlay={true}
+          title: 'Home',
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require('assets/images/home.png')}
+              style={{ width: 18, height: 18, tintColor: color }}
             />
           ),
         }}
-        component={Settings}
+        component={Dashboard}
+      />
+      <Tab.Screen
+        name={CATEGORIES}
+        options={{
+          // @ts-ignore
+          title: 'Categories',
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require('assets/images/menu.png')}
+              style={{ width: 18, height: 18, tintColor: color }}
+            />
+          ),
+        }}
+        component={Dashboard}
+      />
+      <Tab.Screen
+        name={ACCOUNT}
+        options={{
+          // @ts-ignore
+          title: 'Account',
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require('assets/images/user.png')}
+              style={{ width: 18, height: 18, tintColor: color }}
+            />
+          ),
+        }}
+        component={Dashboard}
+      />
+      <Tab.Screen
+        name={CART}
+        options={{
+          // @ts-ignore
+          title: 'Cart',
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require('assets/images/cart.png')}
+              style={{ width: 18, height: 18, tintColor: color }}
+            />
+          ),
+        }}
+        component={Dashboard}
       />
     </Tab.Navigator>
   );

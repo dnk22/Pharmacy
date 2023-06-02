@@ -1,9 +1,11 @@
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import isEqual from 'react-fast-compare';
-import { Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import ModalComponent from 'components/Modal';
 import DateTimePicker from 'components/DateTimePicker';
 import PressableHaptic from 'components/PressableHaptic';
+import TouchableHighlightComponent from 'components/TouchableHighlight';
+import RNText from 'components/Text';
 import styles from './styles';
 import { useCustomTheme } from 'resources/theme';
 import { formatDateLocal } from 'utils/date';
@@ -75,70 +77,33 @@ function DateTimeModalPicker({
       styleDefaultContent={styles.contentView}
     >
       <View style={[styles.pickerHeader, { backgroundColor: colors.surface }]}>
-        <PressableHaptic
-          style={styles.itemHeader}
-          onPress={() => setIsMode('date')}
-        >
-          <Text
-            style={[
-              styles.dateTimeText,
-              {
-                color: isMode === 'date' ? colors.primary : colors.text,
-              },
-            ]}
-          >
+        <PressableHaptic style={styles.itemHeader} onPress={() => setIsMode('date')}>
+          <RNText fontSize={18} color={isMode === 'date' ? colors.primary : undefined}>
             {formatDateLocal(datePicker, 'dd/MM/yyyy')}
-          </Text>
+          </RNText>
         </PressableHaptic>
         <View style={[styles.divider, { backgroundColor: colors.divider }]} />
-        <PressableHaptic
-          style={styles.itemHeader}
-          onPress={() => setIsMode('time')}
-        >
-          <Text
-            style={[
-              styles.dateTimeText,
-              {
-                color: isMode === 'time' ? colors.primary : colors.text,
-              },
-            ]}
-          >
+        <PressableHaptic style={styles.itemHeader} onPress={() => setIsMode('time')}>
+          <RNText fontSize={18} color={isMode === 'time' ? colors.primary : undefined}>
             {formatDateLocal(datePicker, 'HH:mm')}
-          </Text>
+          </RNText>
         </PressableHaptic>
       </View>
       <View style={[styles.pickerContent, { backgroundColor: colors.surface }]}>
-        <DateTimePicker
-          value={datePicker}
-          onDateChange={onDateChange}
-          mode={isMode}
-          display={isMode === 'date' ? 'inline' : 'spinner'}
-        />
-        <TouchableOpacity activeOpacity={0.6}>
-          <PressableHaptic
-            style={styles.bottomBar}
-            onPress={getCurrentDateTime}
-          >
-            <Text style={[styles.actionDate, { color: colors.primary }]}>
-              {actionName}
-            </Text>
-          </PressableHaptic>
-        </TouchableOpacity>
+        <View style={styles.dateTimePicker}>
+          <DateTimePicker
+            value={datePicker}
+            onDateChange={onDateChange}
+            mode={isMode}
+            display={isMode === 'date' ? 'inline' : 'spinner'}
+          />
+        </View>
+        <TouchableHighlightComponent style={styles.bottomBar} onPress={getCurrentDateTime}>
+          <RNText>{actionName}</RNText>
+        </TouchableHighlightComponent>
       </View>
-      <View
-        style={[
-          styles.bright,
-          styles.brightLeft,
-          { backgroundColor: colors.primary },
-        ]}
-      />
-      <View
-        style={[
-          styles.bright,
-          styles.brightRight,
-          { backgroundColor: colors.primary },
-        ]}
-      />
+      <View style={[styles.bright, styles.brightLeft, { backgroundColor: colors.primary }]} />
+      <View style={[styles.bright, styles.brightRight, { backgroundColor: colors.primary }]} />
     </ModalComponent>
   );
 }

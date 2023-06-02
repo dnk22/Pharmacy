@@ -1,35 +1,34 @@
 import { StyleSheet } from 'react-native';
-import { DIMENSIONS } from 'share/scale';
+import { DIMENSIONS, SCREEN_WIDTH } from 'share/scale';
 
 const styles = StyleSheet.create({
   tabBar: {
     height: DIMENSIONS.bottomBarHeight,
-    backgroundColor: 'white',
   },
   activeBackground: {
     position: 'absolute',
   },
   tabBarContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
   },
   component: {
+    position: 'relative',
     height: 60,
-    width: 60,
-    marginTop: -5,
-  },
-  componentCircle: {
-    flex: 1,
-    borderRadius: 30,
-  },
-  iconContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    width: (SCREEN_WIDTH - 80) / 4,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  itemActive: {
+    width: '100%',
+    height: 5,
+    backgroundColor: '#FE4288',
+    top: -7,
+    borderBottomStartRadius: 10,
+    borderBottomEndRadius: 10,
+  },
+  icon: {
+    marginBottom: 5,
   },
 });
 

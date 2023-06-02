@@ -32,12 +32,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   pickerContent: {
-    padding: 10,
     paddingBottom: 0,
     borderRadius: 10,
   },
-  dateTimeText: {
-    fontSize: 18,
+  dateTimePicker: {
+    padding: 10,
   },
   bottomBar: {
     height: 50,
@@ -45,9 +44,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderTopWidth: 0.2,
     borderTopColor: '#eee',
-  },
-  actionDate: {
-    fontSize: 16,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
   },
   bright: {
     height: 30,

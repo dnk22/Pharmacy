@@ -1,11 +1,11 @@
-import { normalize } from 'share/scale';
+import { normalize } from 'share/dimensions';
 
 export const IconSize = {
   default: normalize(24),
   expandIcon: normalize(14),
-  categoryIconSize: normalize(18),
-  forwardLink: normalize(12),
+  forwardLink: normalize(14),
   settingsIcon: normalize(16),
   alertIcon: normalize(14),
   closeModal: 20,
+  transactionType: normalize(26),
 };

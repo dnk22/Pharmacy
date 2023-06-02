@@ -1,21 +1,54 @@
 import React, { memo, useMemo } from 'react';
-import { Text as RNText } from 'react-native';
+import { StyleProp, Text, TextProps, TextStyle } from 'react-native';
 import isEqual from 'react-fast-compare';
-import { useTranslation } from 'react-i18next';
-import { TTextProps } from './type';
+// import { useTranslation } from 'react-i18next';
+import { useCustomTheme } from 'resources/theme';
+import { normalize } from 'share/dimensions';
+import { textPresets } from './preset';
 
-function Text({ text, children, t18n, t18nOptions }: TTextProps) {
-  // setup translation
-  const [t] = useTranslation();
-  const i18nText = useMemo(
-    () => t18n && t(t18n, t18nOptions),
-    [t18n, t18nOptions, t]
-  );
-  const content = useMemo(
-    () => text || i18nText || children,
-    [i18nText, text, children]
-  );
-  return <RNText allowFontScaling={false}>{content}</RNText>;
+export interface TTextProps extends TextProps {
+  text?: 'string';
+  children?: string | number;
+  t18n?: any;
+  t18nOptions?: any;
+  color?: string;
+  style?: StyleProp<TextStyle>;
+  fontSize?: number;
+  preset?: keyof typeof textPresets;
 }
 
-export default memo(Text, isEqual);
+function RNText({
+  text,
+  children,
+  t18n,
+  t18nOptions,
+  color,
+  fontSize = 14,
+  style,
+  preset = 'default',
+  numberOfLines = 1,
+  ...props
+}: TTextProps) {
+  const { colors } = useCustomTheme();
+  // setup translation
+  // const [t] = useTranslation();
+  // const i18nText = useMemo(() => t18n && t(t18n, t18nOptions), [t18n, t18nOptions, t]);
+  const content = useMemo(() => text || children, [, text, children]);
+
+  const textColor = color || colors.text;
+  const textSize = normalize(fontSize);
+  const textPreset = textPresets[preset];
+  return (
+    <Text
+      allowFontScaling={false}
+      style={[style, { color: textColor, fontSize: textSize }, textPreset]}
+      ellipsizeMode="tail"
+      numberOfLines={numberOfLines}
+      {...props}
+    >
+      {content}
+    </Text>
+  );
+}
+
+export default memo(RNText, isEqual);
