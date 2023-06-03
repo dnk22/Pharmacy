@@ -14,20 +14,14 @@ type CategoryItemProps = {
   key: string;
 };
 export default function CategoryItem({ item, key }: CategoryItemProps) {
+  const size =
+    item.title === 'More'
+      ? { width: 30, height: 30, tintColor: '#FD2572' }
+      : { width: 58, height: 58 };
   return (
     <View style={styles.container} key={key}>
       <View style={styles.imgBackground}>
-        {item.icon === 'more' ? (
-          <Image
-            source={require('assets/images/more.png')}
-            style={{ width: 30, height: 30, tintColor: '#FD2572' }}
-          />
-        ) : (
-          <Image
-            source={require('assets/images/phone.webp')}
-            style={{ width: 58, height: 58, borderRadius: 60 }}
-          />
-        )}
+        <Image source={item.icon} style={{ borderRadius: 60, ...size }} />
       </View>
       <Text style={styles.title} fontSize={10}>
         {item.title}

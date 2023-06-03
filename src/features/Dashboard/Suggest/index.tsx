@@ -28,7 +28,7 @@ export default function Suggest() {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    marginTop: 10,
+    marginTop: 5,
     height: 300,
     padding: 15,
   },
