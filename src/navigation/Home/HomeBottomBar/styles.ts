@@ -4,6 +4,8 @@ import { DIMENSIONS, SCREEN_WIDTH } from 'share/scale';
 const styles = StyleSheet.create({
   tabBar: {
     height: DIMENSIONS.bottomBarHeight,
+    borderTopColor: '#F2F2F2',
+    borderTopWidth: 1,
   },
   activeBackground: {
     position: 'absolute',
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 5,
     backgroundColor: '#FE4288',
-    top: -7,
+    top: -8,
     borderBottomStartRadius: 10,
     borderBottomEndRadius: 10,
   },

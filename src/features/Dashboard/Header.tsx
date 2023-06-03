@@ -1,7 +1,16 @@
+import { useNavigation } from '@react-navigation/native';
 import SvgIcon from 'components/SvgIcon';
 import Text from 'components/Text';
+import { CART } from 'navigation/constants';
 import { Pressable, View, StyleSheet, Image } from 'react-native';
+
 export default function Header() {
+  const navigation = useNavigation();
+
+  const onNavigateToCart = () => {
+    navigation.navigate(CART);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.left}>
@@ -17,7 +26,7 @@ export default function Header() {
         <Pressable style={styles.rightIcon}>
           <SvgIcon name="heart" />
         </Pressable>
-        <Pressable style={styles.rightIcon}>
+        <Pressable style={styles.rightIcon} onPress={onNavigateToCart}>
           <Image source={require('assets/images/cart.png')} style={{ width: 24, height: 24 }} />
           <View style={styles.dot}>
             <Text fontSize={9} color="white">

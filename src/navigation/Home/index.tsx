@@ -7,6 +7,8 @@ import HomeBottomBar from './HomeBottomBar';
 import { ACCOUNT, CART, CATEGORIES, DASHBOARD } from '../constants';
 import { Image } from 'react-native';
 import Dashboard from 'features/Dashboard';
+import Cart from 'features/Cart';
+import Profile from 'features/Profile';
 
 //set up routes
 const Tab = createBottomTabNavigator();
@@ -56,6 +58,7 @@ function HomeNavigation() {
         options={{
           // @ts-ignore
           title: 'Account',
+          headerShown: true,
           tabBarIcon: ({ color }) => (
             <Image
               source={require('assets/images/user.png')}
@@ -63,13 +66,14 @@ function HomeNavigation() {
             />
           ),
         }}
-        component={Dashboard}
+        component={Profile}
       />
       <Tab.Screen
         name={CART}
         options={{
           // @ts-ignore
           title: 'Cart',
+          headerShown: true,
           tabBarIcon: ({ color }) => (
             <Image
               source={require('assets/images/cart.png')}
@@ -77,7 +81,7 @@ function HomeNavigation() {
             />
           ),
         }}
-        component={Dashboard}
+        component={Cart}
       />
     </Tab.Navigator>
   );

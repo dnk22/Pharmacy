@@ -11,15 +11,14 @@ type CategoryItemProps = {
     link: string;
     icon: string;
   };
-  key: string;
 };
-export default function CategoryItem({ item, key }: CategoryItemProps) {
+export default function CategoryItem({ item }: CategoryItemProps) {
   const size =
     item.title === 'More'
       ? { width: 30, height: 30, tintColor: '#FD2572' }
       : { width: 58, height: 58 };
   return (
-    <View style={styles.container} key={key}>
+    <View style={styles.container}>
       <View style={styles.imgBackground}>
         <Image source={item.icon} style={{ borderRadius: 60, ...size }} />
       </View>

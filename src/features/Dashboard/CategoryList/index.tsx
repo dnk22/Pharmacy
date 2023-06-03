@@ -55,7 +55,9 @@ export default function CategoryList() {
   return (
     <View style={styles.container}>
       {data.map((item) => (
-        <CategoryItem item={item} key={item.link} />
+        <View key={item.link}>
+          <CategoryItem item={item} />
+        </View>
       ))}
     </View>
   );
