@@ -9,6 +9,7 @@ import CartItem from './CartItem';
 import { data } from './data';
 import FlatList from 'components/FlatList';
 import PressableHaptic from 'components/PressableHaptic';
+import { PAYMENT } from 'navigation/constants';
 
 export default function Cart() {
   const { colors } = useCustomTheme();
@@ -25,6 +26,10 @@ export default function Cart() {
 
   function renderItem({ item }) {
     return <CartItem item={item} key={item.image} />;
+  }
+
+  function navigateToCheckout() {
+    navigation.navigate(PAYMENT);
   }
 
   return (
@@ -74,7 +79,10 @@ export default function Cart() {
             View Price Details
           </Text>
         </View>
-        <PressableHaptic style={[styles.checkoutButton, { backgroundColor: colors.primary }]}>
+        <PressableHaptic
+          style={[styles.checkoutButton, { backgroundColor: colors.primary }]}
+          onPress={navigateToCheckout}
+        >
           <Text color="white" fontSize={16}>
             Checkout
           </Text>
