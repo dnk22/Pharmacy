@@ -1,35 +1,25 @@
 import React from 'react';
-import {
-  BottomTabNavigationOptions,
-  createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeBottomBar from './HomeBottomBar';
 import { ACCOUNT, CART, CATEGORIES, DASHBOARD } from '../constants';
 import { Image } from 'react-native';
 import Dashboard from 'features/Dashboard';
 import Cart from 'features/Cart';
 import Profile from 'features/Profile';
+import Categories from 'features/Categories';
 
 //set up routes
 const Tab = createBottomTabNavigator();
 
-// variable
-const homeOptions: BottomTabNavigationOptions = {
-  headerShown: false,
-};
-
 function HomeNavigation() {
   return (
-    <Tab.Navigator
-      screenOptions={homeOptions}
-      initialRouteName={DASHBOARD}
-      tabBar={(props) => <HomeBottomBar {...props} />}
-    >
+    <Tab.Navigator initialRouteName={DASHBOARD} tabBar={(props) => <HomeBottomBar {...props} />}>
       <Tab.Screen
         name={DASHBOARD}
         options={{
           // @ts-ignore
           title: 'Home',
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Image
               source={require('assets/images/home.png')}
@@ -43,7 +33,7 @@ function HomeNavigation() {
         name={CATEGORIES}
         options={{
           // @ts-ignore
-          title: 'Categories',
+          title: 'All Categories',
           tabBarIcon: ({ color }) => (
             <Image
               source={require('assets/images/menu.png')}
@@ -51,14 +41,13 @@ function HomeNavigation() {
             />
           ),
         }}
-        component={Dashboard}
+        component={Categories}
       />
       <Tab.Screen
         name={ACCOUNT}
         options={{
           // @ts-ignore
           title: 'Account',
-          headerShown: true,
           tabBarIcon: ({ color }) => (
             <Image
               source={require('assets/images/user.png')}
@@ -73,7 +62,6 @@ function HomeNavigation() {
         options={{
           // @ts-ignore
           title: 'Cart',
-          headerShown: true,
           tabBarIcon: ({ color }) => (
             <Image
               source={require('assets/images/cart.png')}

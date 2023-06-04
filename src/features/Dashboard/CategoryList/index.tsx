@@ -1,5 +1,8 @@
 import { View, StyleSheet } from 'react-native';
 import CategoryItem from './Item';
+import PressableHaptic from 'components/PressableHaptic';
+import { useNavigation } from '@react-navigation/native';
+import { CATEGORIES } from 'navigation/constants';
 
 const data = [
   {
@@ -47,17 +50,27 @@ const data = [
   {
     id: 8,
     title: 'More',
-    link: 'More',
+    link: CATEGORIES,
     icon: require('assets/images/more.png'),
   },
 ];
 export default function CategoryList() {
+  const navigation = useNavigation();
+
+  const onItemPress = (item: any) => {
+    try {
+      navigation.navigate(item.link);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       {data.map((item) => (
-        <View key={item.link}>
+        <PressableHaptic key={item.link} onPress={() => onItemPress(item)}>
           <CategoryItem item={item} />
-        </View>
+        </PressableHaptic>
       ))}
     </View>
   );

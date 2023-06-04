@@ -60,7 +60,7 @@ export default function Cart() {
         </View>
         <View style={styles.discountItem}>
           <Text color="gray">Price:</Text>
-          <Text style={styles.value}>152</Text>
+          <Text style={styles.value}>$152</Text>
         </View>
         <View style={styles.discountItem}>
           <Text color="gray">Tax:</Text>
