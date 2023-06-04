@@ -18,7 +18,7 @@ export const normalize = (size: number, factor = 0.5) => size + (scale(size) - s
 
 // begin system icon scale
 export const DIMENSIONS = {
-  bottomBarHeight: 80,
+  bottomBarHeight: 70,
   home: {
     navbarHeight: normalize(40),
     title: normalize(16),

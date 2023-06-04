@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   component: {
     position: 'relative',
     height: 60,
-    width: (SCREEN_WIDTH - 80) / 4,
+    width: (SCREEN_WIDTH) / 4,
     justifyContent: 'center',
     alignItems: 'center',
   },

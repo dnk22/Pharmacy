@@ -8,37 +8,37 @@ const data = [
   {
     id: 1,
     title: 'Mobiles',
-    link: 'mobile',
+    link: CATEGORIES,
     icon: require('assets/images/phone.webp'),
   },
   {
     id: 2,
     title: 'Electronics',
-    link: 'Electronics',
+    link: CATEGORIES,
     icon: require('assets/images/electronics.webp'),
   },
   {
     id: 3,
     title: 'Fashion',
-    link: 'Fashion',
+    link: CATEGORIES,
     icon: require('assets/images/fashion.jpeg'),
   },
   {
     id: 4,
     title: 'Furniture',
-    link: 'Furniture',
+    link: CATEGORIES,
     icon: require('assets/images/Furniture.webp'),
   },
   {
     id: 5,
     title: 'Grocery',
-    link: 'Grocery',
+    link: CATEGORIES,
     icon: require('assets/images/Grocery.jpeg'),
   },
   {
     id: 6,
     title: 'Appliances',
-    link: 'Appliances',
+    link: CATEGORIES,
     icon: require('assets/images/Appliances.jpeg'),
   },
   {
@@ -68,7 +68,7 @@ export default function CategoryList() {
   return (
     <View style={styles.container}>
       {data.map((item) => (
-        <PressableHaptic key={item.link} onPress={() => onItemPress(item)}>
+        <PressableHaptic key={item.title} onPress={() => onItemPress(item)}>
           <CategoryItem item={item} />
         </PressableHaptic>
       ))}

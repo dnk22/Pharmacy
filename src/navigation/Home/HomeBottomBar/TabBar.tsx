@@ -1,8 +1,7 @@
 import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
-import { Pressable, View } from 'react-native';
+import { Pressable, View, Text } from 'react-native';
 import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 import styles from './styles';
-import Text from 'components/Text';
 
 type ITabBarProps = {
   active?: boolean;
@@ -40,7 +39,7 @@ const TabBar = ({ active, options, onPress, colors }: ITabBarProps) => {
           {/* @ts-ignore */}
           {options.tabBarIcon({ color: active ? '#FE4288' : '#000000' })}
         </Animated.View>
-        <Text>{options.title}</Text>
+        <Text style={{ fontSize: 11 }}>{options.title}</Text>
       </View>
     </Pressable>
   );

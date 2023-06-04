@@ -25,7 +25,7 @@ function ItemDetail() {
       headerRight: () => (
         <Image
           source={require('assets/images/more.png')}
-          style={{ width: 18, height: 18, transform: [{ rotate: '90deg' }] }}
+          style={{ width: 18, height: 18, transform: [{ rotate: '90deg' }], tintColor: 'white' }}
         />
       ),
     });

@@ -1,6 +1,6 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import TabBar from './TabBar';
 import styles from './styles';
 import { useCustomTheme } from 'resources/theme';
@@ -12,13 +12,13 @@ const BottomBar = ({
 }: BottomTabBarProps) => {
   const { colors } = useCustomTheme();
   const { bottom: bottomSafeAreaHeight } = useSafeAreaInsets();
-
+  const marginBottom = Platform.OS === 'ios' ? bottomSafeAreaHeight : 0;
   return (
     <View
       style={[
         styles.tabBar,
         {
-          paddingBottom: bottomSafeAreaHeight,
+          paddingBottom: marginBottom,
           backgroundColor: colors.surface,
         },
       ]}

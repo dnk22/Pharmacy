@@ -23,6 +23,8 @@ function AppNavigators() {
         component={ItemDetail}
         options={{
           title: '',
+          headerTransparent: true,
+          headerTintColor: 'white',
         }}
       />
     </RootStack.Navigator>
