@@ -7,6 +7,9 @@ import Text from 'components/Text';
 import PressableHaptic from 'components/PressableHaptic';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Rating } from 'react-native-ratings';
+import Carousel from 'react-native-reanimated-carousel';
+import { SCREEN_WIDTH } from 'share/scale';
+import { dataCarousel } from 'utils/constant';
 
 const colorsPicker = ['#A29698', '#80C6A9', '#8E84CA', '#E5907D'];
 
@@ -27,9 +30,24 @@ function ItemDetail() {
       ),
     });
   }, []);
+
+  const baseOptions = {
+    vertical: false,
+    width: SCREEN_WIDTH,
+  } as const;
+
   return (
     <View style={styles.container}>
       <View style={styles.image}>
+        <Carousel
+          {...baseOptions}
+          pagingEnabled
+          data={dataCarousel}
+          scrollAnimationDuration={1000}
+          renderItem={({ item }) => (
+            <Image source={{ uri: item }} style={{ width: '100%', height: '100%' }} />
+          )}
+        />
         <View style={styles.like}>
           <Image
             source={require('assets/images/love.png')}
@@ -60,7 +78,7 @@ function ItemDetail() {
           <View style={styles.colorView}>
             {colorsPicker.map((item) =>
               colorActive === item ? (
-                <View style={styles.colorPicker}>
+                <View style={styles.colorPicker} key={item}>
                   <Pressable
                     style={[styles.color, { backgroundColor: item }]}
                     onPress={() => setColorActive(item)}
@@ -70,6 +88,7 @@ function ItemDetail() {
                 <Pressable
                   style={[styles.color, { backgroundColor: item }]}
                   onPress={() => setColorActive(item)}
+                  key={item}
                 />
               ),
             )}

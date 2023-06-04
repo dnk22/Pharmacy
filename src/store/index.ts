@@ -1,4 +1,3 @@
-import { listenerMiddleware } from './listener.root';
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore } from 'redux-persist';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +9,7 @@ export const store = configureStore({
   middleware: (gdm) =>
     gdm({
       serializableCheck: false,
-    }).prepend(listenerMiddleware.middleware),
+    }).prepend(),
 });
 
 export const persistor = persistStore(store);
