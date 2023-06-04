@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   rowItemLabel: {
-    fontWeight: '700',
+    fontWeight: '500',
   },
   rowItemValue: {},
   bottom: {

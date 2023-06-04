@@ -79,8 +79,10 @@ function ItemDetail() {
         <View>
           <Text style={styles.itemTitle}>Specifications</Text>
           <View style={styles.rowItem}>
-            <Text style={styles.rowItemLabel}>Brand</Text>
-            <Text style={styles.rowItemValue} color="gray">
+            <Text style={styles.rowItemLabel} fontSize={12}>
+              Brand
+            </Text>
+            <Text style={styles.rowItemValue} color="gray" fontSize={12}>
               Female Clothing
             </Text>
           </View>
