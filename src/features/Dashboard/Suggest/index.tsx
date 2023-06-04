@@ -2,10 +2,18 @@ import SvgIcon from 'components/SvgIcon';
 import Text from 'components/Text';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import Item from './Item';
+import { useNavigation } from '@react-navigation/native';
+import { ITEM_DETAIL } from 'navigation/constants';
 const men = require('assets/images/men1.png');
 const girl = require('assets/images/girl.png');
 
 export default function Suggest() {
+  const navigation = useNavigation();
+
+  const onItemPress = () => {
+    navigation.navigate(ITEM_DETAIL);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -16,10 +24,10 @@ export default function Suggest() {
         </View>
       </View>
       <ScrollView style={styles.content} horizontal>
-        <Item image={men} />
-        <Item image={girl} />
-        <Item image={men} />
-        <Item image={girl} />
+        <Item image={men} onPress={onItemPress} />
+        <Item image={girl} onPress={onItemPress} />
+        <Item image={men} onPress={onItemPress} />
+        <Item image={girl} onPress={onItemPress} />
       </ScrollView>
     </View>
   );

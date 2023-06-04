@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, Image } from 'react-native';
 
-export default function Item({ image }) {
+export default function Item({ image, onPress }) {
   return (
-    <Pressable style={styles.container}>
+    <Pressable style={styles.container} onPress={onPress}>
       <Image
         source={image}
         style={{
