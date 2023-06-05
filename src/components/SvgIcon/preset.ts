@@ -1,4 +1,4 @@
-import { normalize } from 'share/dimensions';
+import { normalize } from '../../share/dimensions';
 
 export const IconSize = {
   default: normalize(24),

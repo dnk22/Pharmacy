@@ -1,15 +1,16 @@
+import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
 import { Image, Pressable, View } from 'react-native';
 import styles from './styles';
-import { useCustomTheme } from 'resources/theme';
-import Text from 'components/Text';
-import PressableHaptic from 'components/PressableHaptic';
+import { useCustomTheme } from '../../resources/theme';
+import Text from '../../components/Text';
+import PressableHaptic from '../../components/PressableHaptic';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Rating } from 'react-native-ratings';
 import Carousel from 'react-native-reanimated-carousel';
-import { SCREEN_WIDTH } from 'share/scale';
-import { dataCarousel } from 'utils/constant';
+import { SCREEN_WIDTH } from '../../share/scale';
+import { dataCarousel } from '../../utils/constant';
 
 const colorsPicker = ['#A29698', '#80C6A9', '#8E84CA', '#E5907D'];
 
@@ -24,7 +25,7 @@ function ItemDetail() {
     navigation.setOptions({
       headerRight: () => (
         <Image
-          source={require('assets/images/more.png')}
+          source={require('../../assets/images/more.png')}
           style={{ width: 18, height: 18, transform: [{ rotate: '90deg' }], tintColor: 'white' }}
         />
       ),
@@ -50,7 +51,7 @@ function ItemDetail() {
         />
         <View style={styles.like}>
           <Image
-            source={require('assets/images/love.png')}
+            source={require('../../assets/images/love.png')}
             style={{ tintColor: colors.primary, width: 18, height: 18 }}
           />
         </View>

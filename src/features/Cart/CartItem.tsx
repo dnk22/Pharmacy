@@ -1,6 +1,7 @@
+import React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
-import PressableHaptic from 'components/PressableHaptic';
-import Text from 'components/Text';
+import PressableHaptic from '../../components/PressableHaptic';
+import Text from '../../components/Text';
 import { useState } from 'react';
 import { dataProps } from './data';
 

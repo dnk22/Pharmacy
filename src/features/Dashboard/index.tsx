@@ -4,7 +4,7 @@ import Header from './Header';
 import CarouselComponent from './Carousel';
 import CategoryList from './CategoryList';
 import SalesEvent from './SalesEvent';
-import { useCustomTheme } from 'resources/theme';
+import { useCustomTheme } from '../../resources/theme';
 import Suggest from './Suggest';
 
 export default function Dashboard() {

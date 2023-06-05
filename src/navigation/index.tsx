@@ -1,9 +1,10 @@
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HOME, ITEM_DETAIL, PAYMENT } from './constants';
 import HomeNavigation from './Home';
 import { RootStackParamList } from './type';
-import Payment from 'features/Payment';
-import ItemDetail from 'features/ItemDetail';
+import Payment from '../features/Payment';
+import ItemDetail from '../features/ItemDetail';
 
 //set up routes
 const RootStack = createNativeStackNavigator<RootStackParamList>();

@@ -1,11 +1,12 @@
-import SvgIcon from 'components/SvgIcon';
-import Text from 'components/Text';
-import { View, StyleSheet, ScrollView } from 'react-native';
+
+import React from 'react';
+import Text from '../../../components/Text';
+import { View, StyleSheet, ScrollView, Image } from 'react-native';
 import Item from './Item';
 import { useNavigation } from '@react-navigation/native';
-import { ITEM_DETAIL } from 'navigation/constants';
-const men = require('assets/images/men1.png');
-const girl = require('assets/images/girl.png');
+import { ITEM_DETAIL } from '../../../navigation/constants';
+const men = require('../../../assets/images/men1.png');
+const girl = require('../../../assets/images/girl.png');
 
 export default function Suggest() {
   const navigation = useNavigation();
@@ -20,7 +21,10 @@ export default function Suggest() {
         <Text style={{ fontWeight: '700' }}>Suggest For You</Text>
         <View style={styles.viewAll}>
           <Text style={{ fontWeight: '700' }}>View all </Text>
-          <SvgIcon name="forward" size={14} />
+          <Image
+            source={require('../../../assets/images/forward.png')}
+            style={{ width: 16, height: 16 }}
+          />
         </View>
       </View>
       <ScrollView style={styles.content} horizontal>

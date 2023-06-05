@@ -1,4 +1,4 @@
-import { SCREEN_HEIGHT } from 'share/scale';
+import { SCREEN_HEIGHT } from '../share/scale';
 import { useEffect, useRef } from 'react';
 import { SCREEN_WIDTH } from './scale';
 

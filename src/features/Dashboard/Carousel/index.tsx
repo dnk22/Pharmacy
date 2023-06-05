@@ -1,8 +1,9 @@
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import Item from './Item';
-import { SCREEN_WIDTH } from 'share/scale';
-import { dataCarousel } from 'utils/constant';
+import { SCREEN_WIDTH } from '../../../share/scale';
+import { dataCarousel } from '../../../utils/constant';
 
 function CarouselComponent() {
   const baseOptions = {

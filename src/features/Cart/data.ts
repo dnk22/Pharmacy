@@ -10,7 +10,7 @@ export type dataProps = {
 export const data: dataProps[] = [
   {
     id: '1',
-    image: require('assets/images/men1.png'),
+    image: require('../../assets/images/men1.png'),
     title: 'Peter England Causual',
     subTitle: 'Printed Longline Pure Cotteon T-shirt',
     priceOrigin: '$158.2',
@@ -19,7 +19,7 @@ export const data: dataProps[] = [
   },
   {
     id: '3',
-    image: require('assets/images/girl.png'),
+    image: require('../../assets/images/girl.png'),
     title: 'Peter England Causual',
     subTitle: 'Printed Longline Pure Cotteon T-shirt',
     priceOrigin: '$158.2',
@@ -28,7 +28,7 @@ export const data: dataProps[] = [
   },
   {
     id: '2',
-    image: require('assets/images/men1.png'),
+    image: require('../../assets/images/men1.png'),
     title: 'Peter England Causual',
     subTitle: 'Printed Longline Pure Cotteon T-shirt',
     priceOrigin: '$158.2',

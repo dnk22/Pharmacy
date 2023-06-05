@@ -1,11 +1,12 @@
+import React from 'react';
+
 import { useNavigation } from '@react-navigation/native';
-import SvgIcon from 'components/SvgIcon';
-import Text from 'components/Text';
-import { CART } from 'navigation/constants';
+import Text from '../../components/Text';
+import { CART } from '../../navigation/constants';
 import { Pressable, View, StyleSheet, Image } from 'react-native';
 
 export default function Header() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
 
   const onNavigateToCart = () => {
     navigation.navigate(CART);
@@ -15,19 +16,31 @@ export default function Header() {
     <View style={styles.container}>
       <View style={styles.left}>
         <Pressable style={styles.buttonNavigation}>
-          <SvgIcon name="menu" size={16} />
+        <Image
+            source={require('../../assets/images/menu-list.png')}
+            style={{ width: 16, height: 16 }}
+          />
         </Pressable>
         <Text>Home</Text>
       </View>
       <View style={styles.right}>
         <Pressable style={styles.rightIcon}>
-          <SvgIcon name="search" />
+          <Image
+            source={require('../../assets/images/search.png')}
+            style={{ width: 24, height: 24 }}
+          />
         </Pressable>
         <Pressable style={styles.rightIcon}>
-          <SvgIcon name="heart" />
+          <Image
+            source={require('../../assets/images/love.png')}
+            style={{ width: 24, height: 24 }}
+          />
         </Pressable>
         <Pressable style={styles.rightIcon} onPress={onNavigateToCart}>
-          <Image source={require('assets/images/cart.png')} style={{ width: 24, height: 24 }} />
+          <Image
+            source={require('../../assets/images/cart.png')}
+            style={{ width: 24, height: 24 }}
+          />
           <View style={styles.dot}>
             <Text fontSize={9} color="white">
               2

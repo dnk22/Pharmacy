@@ -1,11 +1,11 @@
+import React from 'react';
 import { Image, SafeAreaView, View } from 'react-native';
 import styles from './styles';
-import Text from 'components/Text';
-import SvgIcon from 'components/SvgIcon';
+import Text from '../../components/Text';
 import { paymentOptions } from './const';
-import { useCustomTheme } from 'resources/theme';
+import { useCustomTheme } from '../../resources/theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import PressableHaptic from 'components/PressableHaptic';
+import PressableHaptic from '../../components/PressableHaptic';
 
 function Payment() {
   const { colors } = useCustomTheme();
@@ -15,7 +15,10 @@ function Payment() {
     <SafeAreaView style={styles.container}>
       <View style={styles.top}>
         <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-          <Image source={require('assets/images/discount.png')} style={{ width: 18, height: 18 }} />
+          <Image
+            source={require('../../assets/images/discount.png')}
+            style={{ width: 18, height: 18 }}
+          />
           <Text style={styles.topTitle}>Bank Offer</Text>
         </View>
         <Text color="gray" numberOfLines={2} style={{ marginLeft: 10 }}>
@@ -30,11 +33,14 @@ function Payment() {
           <View style={styles.paymentItem} key={item.type}>
             <Image source={item.icon} style={styles.paymentItemIcon} />
             <Text style={styles.paymentTitle}>{item.title}</Text>
-            <SvgIcon name="forward" style={styles.arrow} size={18} />
+            <Image
+              source={require('../../assets/images/forward.png')}
+              style={[styles.arrow, { width: 18, height: 18 }]}
+            />
           </View>
         ))}
         <View style={styles.giftCode}>
-          <Image source={require('assets/images/gift.png')} style={styles.paymentItemIcon} />
+          <Image source={require('../../assets/images/gift.png')} style={styles.paymentItemIcon} />
           <Text style={styles.giftCodeText}>Have a Gift Card?</Text>
           <Text style={styles.giftCodeApply} color={colors.primary}>
             Apply

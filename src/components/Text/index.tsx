@@ -2,8 +2,8 @@ import React, { memo, useMemo } from 'react';
 import { StyleProp, Text, TextProps, TextStyle } from 'react-native';
 import isEqual from 'react-fast-compare';
 // import { useTranslation } from 'react-i18next';
-import { useCustomTheme } from 'resources/theme';
-import { normalize } from 'share/dimensions';
+import { useCustomTheme } from '../../resources/theme';
+import { normalize } from '../../share/dimensions';
 import { textPresets } from './preset';
 
 export interface TTextProps extends TextProps {

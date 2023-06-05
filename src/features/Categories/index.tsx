@@ -1,54 +1,54 @@
+import React from 'react';
 import { Image, SafeAreaView, ScrollView, View } from 'react-native';
 import styles from './styles';
-import CategoryItem from 'features/Dashboard/CategoryList/Item';
-import Text from 'components/Text';
-import PressableHaptic from 'components/PressableHaptic';
+import CategoryItem from '../../features/Dashboard/CategoryList/Item';
+import Text from '../../components/Text';
+import PressableHaptic from '../../components/PressableHaptic';
 import { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import SvgIcon from 'components/SvgIcon';
 
 const data = [
   {
     id: 1,
     title: 'Mobiles',
     link: 'mobile',
-    icon: require('assets/images/phone.webp'),
+    icon: require('../../assets/images/phone.webp'),
   },
   {
     id: 2,
     title: 'Electronics',
     link: 'Electronics',
-    icon: require('assets/images/electronics.webp'),
+    icon: require('../../assets/images/electronics.webp'),
   },
   {
     id: 3,
     title: 'Fashion',
     link: 'Fashion',
-    icon: require('assets/images/fashion.jpeg'),
+    icon: require('../../assets/images/fashion.jpeg'),
   },
   {
     id: 4,
     title: 'Furniture',
     link: 'Furniture',
-    icon: require('assets/images/Furniture.webp'),
+    icon: require('../../assets/images/Furniture.webp'),
   },
   {
     id: 5,
     title: 'Grocery',
     link: 'Grocery',
-    icon: require('assets/images/Grocery.jpeg'),
+    icon: require('../../assets/images/Grocery.jpeg'),
   },
   {
     id: 6,
     title: 'Appliances',
     link: 'Appliances',
-    icon: require('assets/images/Appliances.jpeg'),
+    icon: require('../../assets/images/Appliances.jpeg'),
   },
   {
     id: 7,
     title: 'Book,Toys',
     link: 'Book',
-    icon: require('assets/images/book-toys.webp'),
+    icon: require('../../assets/images/book-toys.webp'),
   },
 ];
 
@@ -59,7 +59,10 @@ function Categories() {
     navigation.setOptions({
       headerRight: () => (
         <PressableHaptic style={styles.searchIcon}>
-          <SvgIcon name="search" />
+          <Image
+            source={require('../../assets/images/search.png')}
+            style={{ width: 18, height: 18 }}
+          />
         </PressableHaptic>
       ),
     });
@@ -81,7 +84,7 @@ function Categories() {
           <View style={[styles.card, { backgroundColor: '#335F79' }]}>
             <View style={styles.cardLeft}>
               <Image
-                source={require('assets/images/two-girl.png')}
+                source={require('../../assets/images/two-girl.png')}
                 style={{ width: '100%', height: '100%' }}
                 resizeMode="cover"
               />
@@ -101,7 +104,7 @@ function Categories() {
           <View style={[styles.card, { backgroundColor: '#E17391' }]}>
             <View style={styles.cardLeft}>
               <Image
-                source={require('assets/images/men1.png')}
+                source={require('../../assets/images/men1.png')}
                 style={{ width: '100%', height: '100%' }}
                 resizeMode="contain"
               />

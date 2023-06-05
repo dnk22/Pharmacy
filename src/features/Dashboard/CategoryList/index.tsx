@@ -1,57 +1,58 @@
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import CategoryItem from './Item';
-import PressableHaptic from 'components/PressableHaptic';
 import { useNavigation } from '@react-navigation/native';
-import { CATEGORIES } from 'navigation/constants';
+import { CATEGORIES } from '../../../navigation/constants';
+import PressableHaptic from '../../../components/PressableHaptic';
 
 const data = [
   {
     id: 1,
     title: 'Mobiles',
     link: CATEGORIES,
-    icon: require('assets/images/phone.webp'),
+    icon: require('../../../assets/images/phone.webp'),
   },
   {
     id: 2,
     title: 'Electronics',
     link: CATEGORIES,
-    icon: require('assets/images/electronics.webp'),
+    icon: require('../../../assets/images/electronics.webp'),
   },
   {
     id: 3,
     title: 'Fashion',
     link: CATEGORIES,
-    icon: require('assets/images/fashion.jpeg'),
+    icon: require('../../../assets/images/fashion.jpeg'),
   },
   {
     id: 4,
     title: 'Furniture',
     link: CATEGORIES,
-    icon: require('assets/images/Furniture.webp'),
+    icon: require('../../../assets/images/Furniture.webp'),
   },
   {
     id: 5,
     title: 'Grocery',
     link: CATEGORIES,
-    icon: require('assets/images/Grocery.jpeg'),
+    icon: require('../../../assets/images/Grocery.jpeg'),
   },
   {
     id: 6,
     title: 'Appliances',
     link: CATEGORIES,
-    icon: require('assets/images/Appliances.jpeg'),
+    icon: require('../../../assets/images/Appliances.jpeg'),
   },
   {
     id: 7,
     title: 'Book,Toys',
     link: 'Book',
-    icon: require('assets/images/book-toys.webp'),
+    icon: require('../../../assets/images/book-toys.webp'),
   },
   {
     id: 8,
     title: 'More',
     link: CATEGORIES,
-    icon: require('assets/images/more.png'),
+    icon: require('../../../assets/images/more.png'),
   },
 ];
 export default function CategoryList() {

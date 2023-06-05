@@ -1,4 +1,4 @@
-import { normalize } from 'share/dimensions';
+import { normalize } from '../../share/dimensions';
 import { StyleSheet } from 'react-native';
 
 export const textPresets = StyleSheet.create({

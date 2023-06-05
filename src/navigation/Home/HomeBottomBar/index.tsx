@@ -1,9 +1,10 @@
+import React from 'react';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Platform, View } from 'react-native';
 import TabBar from './TabBar';
 import styles from './styles';
-import { useCustomTheme } from 'resources/theme';
+import { useCustomTheme } from '../../../resources/theme';
 
 const BottomBar = ({
   state: { index: activeIndex, routes },

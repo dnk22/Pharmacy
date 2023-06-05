@@ -1,4 +1,5 @@
-import Text from 'components/Text';
+import React from 'react';
+import Text from '../../../components/Text';
 import { View, StyleSheet } from 'react-native';
 import { Dimensions, Image } from 'react-native';
 
@@ -9,7 +10,7 @@ type CategoryItemProps = {
     id: number;
     title: string;
     link: string;
-    icon: string;
+    icon: any;
   };
 };
 export default function CategoryItem({ item }: CategoryItemProps) {

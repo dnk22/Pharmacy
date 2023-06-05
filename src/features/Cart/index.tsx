@@ -1,15 +1,15 @@
-import { Image, ScrollView, View } from 'react-native';
+import React from 'react';
+import { Image, SafeAreaView, ScrollView, View } from 'react-native';
 import styles from './styles';
-import Text from 'components/Text';
-import SvgIcon from 'components/SvgIcon';
-import { useCustomTheme } from 'resources/theme';
+import Text from '../../components/Text';
+import { useCustomTheme } from '../../resources/theme';
 import { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import CartItem from './CartItem';
 import { data } from './data';
-import FlatList from 'components/FlatList';
-import PressableHaptic from 'components/PressableHaptic';
-import { PAYMENT } from 'navigation/constants';
+import FlatList from '../../components/FlatList';
+import PressableHaptic from '../../components/PressableHaptic';
+import { PAYMENT } from '../../navigation/constants';
 
 export default function Cart() {
   const { colors } = useCustomTheme();
@@ -19,12 +19,12 @@ export default function Cart() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Image source={require('assets/images/more.png')} style={styles.headerConfig} />
+        <Image source={require('../../assets/images/more.png')} style={styles.headerConfig} />
       ),
     });
   }, []);
 
-  function renderItem({ item }) {
+  function renderItem({ item }: any) {
     return <CartItem item={item} key={item.image} />;
   }
 
@@ -33,17 +33,23 @@ export default function Cart() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.userInfo}>
         <View style={styles.col}>
-          <Image source={require('assets/images/girl-avatar.jpeg')} style={styles.userAvatar} />
+          <Image
+            source={require('../../assets/images/girl-avatar.jpeg')}
+            style={styles.userAvatar}
+          />
           <Text style={{ fontWeight: '700', marginLeft: 10 }}>Deliver to Yatin</Text>
         </View>
         <View style={styles.col}>
           <Text fontSize={12} color={colors.primary}>
             Ram krishan, puram
           </Text>
-          <SvgIcon name="forward" style={styles.arrow} size={12} color={colors.primary} />
+          <Image
+            source={require('../../assets/images/forward.png')}
+            style={[styles.arrow, { width: 12, height: 12, tintColor: colors.primary }]}
+          />
         </View>
       </View>
       <View style={styles.itemList}>
@@ -56,12 +62,15 @@ export default function Cart() {
         <View style={styles.coupon}>
           <View style={styles.couponCode}>
             <Image
-              source={require('assets/images/cut.png')}
+              source={require('../../assets/images/cut.png')}
               style={{ tintColor: colors.primary, width: 18, height: 18 }}
             />
             <Text style={{ fontWeight: '700', marginLeft: 15 }}>MHG76T</Text>
           </View>
-          <SvgIcon name="forward" size={16} />
+          <Image
+            source={require('../../assets/images/forward.png')}
+            style={[{ width: 16, height: 16, tintColor: colors.primary }]}
+          />
         </View>
         <View style={styles.discountItem}>
           <Text color="gray">Price:</Text>
@@ -88,6 +97,6 @@ export default function Cart() {
           </Text>
         </PressableHaptic>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

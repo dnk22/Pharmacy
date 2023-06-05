@@ -1,8 +1,8 @@
 import React, { memo, useMemo } from 'react';
 import isEqual from 'react-fast-compare';
 import { NumberProp, SvgProps } from 'react-native-svg';
-import { useCustomTheme } from 'resources/theme';
-import { normalize } from 'share/dimensions';
+import { useCustomTheme } from '../../resources/theme';
+import { normalize } from '../../share/dimensions';
 import icon, { IconProps } from './const';
 import { IconSize } from './preset';
 
@@ -10,14 +10,14 @@ interface SvgIconProps extends SvgProps {
   name?: IconProps;
   color?: string;
   preset?: keyof typeof IconSize;
-  size?: NumberProp;
+  size?: any;
 }
 
 function SvgIcon({ name, color, size, preset = 'default', ...rest }: SvgIconProps) {
   const { colors } = useCustomTheme();
 
   // import svg icon by name
-  const Icon: React.FC<SvgProps> = (name && icon[name]) || icon.questionCircle;
+  const Icon: any = name && icon[name];
   const presetStyle = IconSize[preset];
   const dimension = {
     width: normalize(size) || presetStyle,

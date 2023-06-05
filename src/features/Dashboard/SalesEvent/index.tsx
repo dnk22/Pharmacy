@@ -1,16 +1,17 @@
-import Text from 'components/Text';
+
+import React from 'react';
+import Text from '../../../components/Text';
 import { Image, ImageBackground, View, StyleSheet } from 'react-native';
 
 export default function SalesEvent() {
   return (
     <ImageBackground
-      source={require('assets/images/bg-sales.jpg')}
+      source={require('../../../assets/images/bg-sales.jpg')}
       resizeMode="cover"
       style={styles.container}
     >
-      <Image />
       <View style={styles.iconView}>
-        <Image source={require('assets/images/big-sale.png')} style={styles.icon} />
+        <Image source={require('../../../assets/images/big-sale.png')} style={styles.icon} />
       </View>
       <View style={styles.countDown}>
         <Text style={styles.title} color="white">

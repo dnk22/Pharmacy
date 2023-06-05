@@ -3,7 +3,7 @@ import { StyleProp, TextInput, TextInputProps, TextStyle } from 'react-native';
 import { Control, RegisterOptions, useController } from 'react-hook-form';
 import stylesInline from './styles';
 import isEqual from 'react-fast-compare';
-import { useCustomTheme } from 'resources/theme';
+import { useCustomTheme } from '../../resources/theme';
 
 interface IInputField extends TextInputProps {
   name: string;

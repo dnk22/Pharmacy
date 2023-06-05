@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { DIMENSIONS, SCREEN_WIDTH } from 'share/scale';
+import { DIMENSIONS, SCREEN_WIDTH } from '../../../share/scale';
 
 const styles = StyleSheet.create({
   tabBar: {
